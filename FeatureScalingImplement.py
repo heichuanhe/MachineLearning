@@ -4,6 +4,7 @@ from sklearn.preprocessing import StandardScaler
 
 x = np.array([[1,2],[2,5],[3,7],[4,8],[5,15]])
 y = np.arange(1,6)
+
 def standardNormalization(*arrays):
     result_arrays = []
     for array in arrays:
