@@ -1,5 +1,5 @@
 import numpy as np
-
+from sklearn.metrics import mean_squared_error
 def hypothesis(x,theta):
     return np.dot(x,theta)
 
@@ -31,3 +31,21 @@ def descentGradient(alpha,x,y,theta_start,iterations):
 			theta[j] = theta[j]-(alpha/m)*np.sum((hypothesis(x,theta)-y)*np.array(x[:,j]).reshape(x.shape[0],1))
 			
 	return theta,thetahistory,jvec
+
+def model_predict(theta,x):
+	y_pred = np.dot(x,theta)
+	return y_pred
+
+y = np.arange(10)
+y_pred = np.arange(20,step=2)
+
+
+print(y_pred-y)
+def model_mean_squared_error(y_train,y_pred):
+	n = y_train.shape[0]
+	mse = (1/n)*np.dot(np.array(y_pred-y_train).T,np.array(y_pred-y_train))
+	return mse
+bias_mse = mean_squared_error(y,y_pred)
+mse_own = model_mean_squared_error(y_train=y,y_pred=y_pred)
+print(mse_own)
+print(bias_mse)

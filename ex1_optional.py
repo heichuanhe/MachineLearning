@@ -11,14 +11,21 @@ datafile = 'data/ex1data2.txt'
 cols = np.loadtxt(datafile,delimiter=',',usecols=(0,1,2),unpack=True)
 x = np.transpose(cols[:-1])
 y = np.transpose(cols[-1:])
-arrays_nor = fs.standardNormalization(x,y)
-x_standard = arrays_nor[0]
-y_standard = arrays_nor[1]
+standard_arrays_nor = fs.standardNormalization(x,y)
+x_standard = standard_arrays_nor[0]
+y_standard = standard_arrays_nor[1]
+mean_arrays_nor = fs.meanNormalization(x,y)
+x_mean = mean_arrays_nor[0]
+y_mean = mean_arrays_nor[1]
+z_score_arrays_nor = fs.z_scoreNormalization(x,y)
+x_zScore = z_score_arrays_nor[0]
+y_zScore = z_score_arrays_nor[1]
 
 
-# x_standard = fs.z_score_normalization_sklearn(x)
-# y_standard = fs.z_score_normalization_sklearn(y)
+
 x_standard = np.insert(x_standard,0,1,axis=1)
+x_mean = np.insert(x_standard,0,1,axis=1)
+x_zScore = np.insert(x_standard,0,1,axis=1)
 print(x_standard)
 print('==========================================')
 print(y_standard)
