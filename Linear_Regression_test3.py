@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
-import LinearRegressionModel as LRM
+import exercise1.LinearRegressionModel as LRM
 datafile = 'data/ex1data1.txt'
 cols = np.loadtxt(datafile,delimiter=',',usecols=(0,1),unpack=True)
 x = np.transpose(np.array(cols[:-1]))

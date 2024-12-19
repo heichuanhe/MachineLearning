@@ -31,7 +31,16 @@ def descentGradient(alpha,x,y,theta_start,iterations):
 			theta[j] = theta[j]-(alpha/m)*np.sum((hypothesis(x,theta)-y)*np.array(x[:,j]).reshape(x.shape[0],1))
 			
 	return theta,thetahistory,jvec
-
+def model_fit(alpha,x,y,theta_start,iterations):
+	m = x.shape[0]
+	theta = theta_start
+	
+	for i in range(iterations):
+		cost = computeCost(x,y,theta)
+		
+		for j in range(len(theta)):
+			theta[j] = theta[j]-(alpha/m)*np.sum((hypothesis(x,theta)-y)*np.array(x[:,j]).reshape(x.shape[0],1))		
+	return theta
 def model_predict(theta,x):
 	y_pred = np.dot(x,theta)
 	return y_pred
@@ -39,13 +48,7 @@ def model_predict(theta,x):
 y = np.arange(10)
 y_pred = np.arange(20,step=2)
 
-
-print(y_pred-y)
 def model_mean_squared_error(y_train,y_pred):
 	n = y_train.shape[0]
 	mse = (1/n)*np.dot(np.array(y_pred-y_train).T,np.array(y_pred-y_train))
 	return mse
-bias_mse = mean_squared_error(y,y_pred)
-mse_own = model_mean_squared_error(y_train=y,y_pred=y_pred)
-print(mse_own)
-print(bias_mse)

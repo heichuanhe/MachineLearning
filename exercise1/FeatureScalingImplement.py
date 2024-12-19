@@ -27,7 +27,6 @@ def meanNormalization(*arrays):
             mean_value = np.mean(array)
             column_max = np.max(array)
             column_min = np.min(array)
-            print(f'mean:{mean_value},max:{column_max},min:{column_min}')
             result_arrays.append((array-mean_value)/float(column_max-column_min))
         else:
             mean_value_per_column = np.mean(array,axis=0)
@@ -65,6 +64,3 @@ def z_score_normalization_sklearn(arr):
         return scaler.transform(arr_reshaped).ravel()
     else:
         return scaler.fit_transform(arr)
-
-normalized_sklearn = z_score_normalization_sklearn(x)
-print(normalized_sklearn)
