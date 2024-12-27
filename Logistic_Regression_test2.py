@@ -95,20 +95,21 @@ def plotBoundary(mytheta, myX, myy, mylambda=0.):
 plt.figure(figsize=(12,10))
 plt.subplot(221)
 plotData()
+plotBoundary(theta,mappedX,y,0.)
+
+plt.subplot(222)
+plotData()
+plotBoundary(theta,mappedX,y,1.)
+
+plt.subplot(223)
+plotData()
+plotBoundary(theta,mappedX,y,10.)
+
+plt.subplot(224)
+plotData()
 plotBoundary(theta,mappedX,y,100.)
+
 plt.show()
-
-# plt.subplot(222)
-# plotData()
-# plotBoundary(theta,mappedX,y,1.)
-
-# plt.subplot(223)
-# plotData()
-# plotBoundary(theta,mappedX,y,10.)
-
-# plt.subplot(224)
-# plotData()
-# plotBoundary(theta,mappedX,y,100.)
 
 
 
